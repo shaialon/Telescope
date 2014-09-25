@@ -44,7 +44,10 @@ Meteor.methods({
                       account: 'bbhntrjt16yvunll9iyayufn4',
                       catalog: '2p3tubvtj2b3t7dmvo5k0vdn5',
                       results_per_page: 100,
-                      category:'jewlery',
+                      // category:'jewlery',
+                      keyword: 'Watch',
+                      include_discounts: true,
+                      page:2,
                     }}
     );
   }
