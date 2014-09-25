@@ -2,7 +2,7 @@ Template[getTemplate('user_profile')].created = function () {
   Session.set('postsShown', 5);
   Session.set('upvotedPostsShown', 5);
   Session.set('downvotedPostsShown', 5);
-  Session.set('commentsShown', 5);  
+  Session.set('commentsShown', 5);
 };
 
 Template[getTemplate('user_profile')].helpers({
@@ -71,11 +71,22 @@ Template[getTemplate('user_profile')].helpers({
           comment.postTitle = post.title;
         return comment;
       });
-      return extendedComments    
+      return extendedComments
     }
   },
   hasMoreComments: function () {
     return Comments.find({userId: this._id}).count() > Session.get('commentsShown');
+  },
+
+
+
+  //New:
+  hasProducts:function(){
+    return Session.get("hasProducts");
+  },
+
+  allProducts:function(){
+    return Session.get("products");
   }
 });
 

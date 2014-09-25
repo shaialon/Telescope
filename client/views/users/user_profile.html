@@ -1,4 +1,49 @@
 <template name="user_profile">
+	{{#if hasProducts}}
+		<div class="user-profile-comments grid grid-module">
+			<h3>{{allProducts.resources.merchants.count}} Merchants!</h3>
+			<table>
+			<thead>
+				<tr>
+					<td>Logo</td>
+					<td>Name</td>
+					<td>url</td>
+				</tr>
+			</thead>
+			{{#each allProducts.resources.merchants.merchant}}
+				<tr>
+					<td><img src={{logo_url}}/></td>
+					<td>{{name}}</td>
+					<td><a href={{url}} target="_blank">Go there</a></td>
+				</tr>
+			{{/each}}
+			</table>
+		</div>
+
+
+
+		<div class="user-profile-comments grid grid-module">
+			<h3>{{allProducts.results.products.count}} Products!</h3>
+			<table>
+			<thead>
+				<tr>
+					<td>Logo</td>
+					<td>Name</td>
+					<td>url</td>
+				</tr>
+			</thead>
+			{{#each allProducts.results.products.product}}
+				<tr>
+					<td><img src={{image_url_large}} width="300"/></td>
+					<td>${{price_min}}, {{name}}</td>
+					<td><a href="url" target="_blank">{{description}}</a></td>
+				</tr>
+			{{/each}}
+			</table>
+		</div>
+	{{/if}}
+
+
 	{{#with user}}
 		<div class="user-profile grid grid-module">
 			<table>
@@ -40,7 +85,7 @@
 						<td>{{i18n "Site"}}:</td>
 						<td><a href="{{profile.site}}">{{profile.site}}</a></td>
 					</tr>
-				{{/if}}					
+				{{/if}}
 			</table>
 			{{#if canEditProfile}}
 				<a class="button inline" href="/users/{{slug}}/edit">{{i18n "Edit profile"}}</a>
