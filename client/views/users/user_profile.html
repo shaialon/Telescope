@@ -11,11 +11,11 @@
 				</tr>
 			</thead>
 			{{#each allProducts.resources.merchants.merchant}}
-				<tr>
+				<!-- <tr>
 					<td><img src={{logo_url}}/></td>
 					<td>{{name}}</td>
 					<td><a href={{url}} target="_blank">Go there</a></td>
-				</tr>
+				</tr> -->
 			{{/each}}
 			</table>
 		</div>
@@ -24,22 +24,13 @@
 
 		<div class="user-profile-comments grid grid-module">
 			<h3>{{allProducts.results.products.count}} Products!</h3>
-			<table>
-			<thead>
-				<tr>
-					<td>Logo</td>
-					<td>Name</td>
-					<td>url</td>
-				</tr>
-			</thead>
 			{{#each allProducts.results.products.product}}
-				<tr>
-					<td><img src={{image_url_large}} width="300"/></td>
-					<td>${{price_min}}, {{name}}</td>
-					<td><a href="url" target="_blank">{{description}}</a></td>
-				</tr>
+			<div style="display:inline-block;width:30%">
+					<img src={{image_url_large}} width="200"/><br/>
+					<h4>${{price_min}}, {{name}}</h4>
+					<p style="text-overflow: ellipsis; overflow: hidden; display: inline-block; white-space: nowrap; max-width: 100%; border-bottom: 1px solid #CCC; padding-bottom: 10px; margin-bottom: 42px;"> {{description}}</p>
+			</div>
 			{{/each}}
-			</table>
 		</div>
 	{{/if}}
 

@@ -47,15 +47,7 @@ Meteor.startup(function () {
 
 
 
-  Meteor.call('getProducts', 2, function(error,response) {
-    if (error) {
-      throwError(error.reason);
-    } else {
-      console.log(response.data);
-      Session.set("products", response.data);
-      Session.set("hasProducts", true);
-    }
-  });
+  getProducts(1);
 
 
 });

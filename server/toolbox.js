@@ -38,16 +38,17 @@ Meteor.methods({
       );
     }
   },
-  getProducts:function(aa){
+  getProducts:function(page){
     return HTTP.call("POST", "https://www.popshops.com/v3/products.json",
            {params: {
                       account: 'bbhntrjt16yvunll9iyayufn4',
                       catalog: '2p3tubvtj2b3t7dmvo5k0vdn5',
                       results_per_page: 100,
-                      // category:'jewlery',
-                      keyword: 'Watch',
-                      include_discounts: true,
-                      page:2,
+                      // category:'31400',
+                      // keyword: "shoes",
+                      // keyword_name: "shoes",
+                      // include_discounts: true,
+                      page:page,
                     }}
     );
   }
